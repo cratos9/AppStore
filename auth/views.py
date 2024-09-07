@@ -1,3 +1,5 @@
 from django.shortcuts import render
 
-# Create your views here.
+def index(request):
+    saludo={'clave':'valor'}
+    return render(request,"auth/index.html", saludo)
