@@ -1,0 +1,37 @@
+:root{
+    --color-nav:#0094c0;
+    --color-hover-text:#9ef6ff;
+    --color-text:white;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: block;
+    background-color: var(--color-nav);
+    padding: 10px 0;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.opciones__opcion::marker{
+    content: none;
+}
+
+.opciones__links{
+    text-decoration: none;
+    font-size: max(25px,2dvh);
+    color: var(--color-text);
+}
+
+.opciones__links:hover{
+    text-decoration: underline;
+    color: var(--color-hover-text);
+}
