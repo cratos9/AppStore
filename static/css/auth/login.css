@@ -1,0 +1,71 @@
+:root{
+    --color-nav:#0094c0;
+    --color-hover-text:#9ef6ff;
+    --color-text:white;
+    --color-fields:#00d5ff;
+}
+
+body{
+    margin: 0;
+    padding: 0;
+}
+
+nav{
+    display: block;
+    background-color: var(--color-nav);
+    padding: 10px 0;
+}
+
+.opciones{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.opciones__opcion::marker{
+    content: none;
+}
+
+.opciones__links{
+    text-decoration: none;
+    font-size: max(25px,2dvh);
+    color: var(--color-text);
+}
+
+.opciones__links:hover{
+    text-decoration: underline;
+    color: var(--color-hover-text);
+}
+
+form{
+    padding: 20px;
+}
+
+label{
+    display: block;
+    font-size: 20px;
+}
+
+.form--campos{
+    width: 40%;
+    font-size: 20px;
+    border: none;
+    border-bottom:solid 1px var(--color-fields) ;
+}
+
+.form--campos:focus{
+    outline: none;
+}
+
+.enviar{
+    font-size: 20px;
+    background: white;
+    color: var(--color-fields);
+    border:  solid 1px var(--color-fields);
+    transition: background .5s, color .5s;
+}
+
+.enviar:hover{
+    background: var(--color-fields);
+    color: white;
+}
