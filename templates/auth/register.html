@@ -1,22 +1,24 @@
 {% extends "base.html" %}
 {% block title %}
-    Cratos's store
+    Cratos's store - login
 {% endblock %}
 {% block style %}
     {% load static %}
-    <link rel="stylesheet" href="{% static 'css/auth/index.css' %}">
+    <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
 {% endblock %}
 {% block nav %}
     <nav>
         <ul class="opciones">
             <li class="opciones__opcion"><a href="#" class="opciones__links">Cratos's store</a></li>
-            <li class="opciones__opcion"><a href="{%url 'register' %}" class="opciones__links">Registrarse</a></li>
             <li class="opciones__opcion"><a href="{% url 'login' %}" class="opciones__links">Iniciar sesion</a></li>
-            <li class="opciones__opcion"><a href="#" class="opciones__links">Carrito</a></li>
-            <li class="opciones__opcion"><a href="#" class="opciones__links">Compras</a></li>
+            <li class="opciones__opcion"><a href="{% url 'index' %}" class="opciones__links">Salir</a></li>
         </ul>
     </nav>
 {% endblock %}
 {% block content %}
-    
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Registrarse" class="enviar">
+    </form>
 {% endblock %}

@@ -1,9 +1,8 @@
 from django.shortcuts import render
-from .form import loginForm
+from .form import loginForm, RegisterForm
 
 def index(request):
-    saludo={'clave':'valor'}
-    return render(request,"auth/index.html", saludo)
+    return render(request,"auth/index.html")
 
 def login(request):
     if request.method == 'POST':
@@ -15,3 +14,13 @@ def login(request):
     else:
         form = loginForm()
     return render(request,"auth/login.html",{'form':form})
+
+def Register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            user = form.cleaned_data['user']
+            password = form.cleaned_data['password']
+    else:
+        form = RegisterForm()
+    return render(request,"auth/register.html",{'form':form})
