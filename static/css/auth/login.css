@@ -38,7 +38,10 @@ nav{
 }
 
 form{
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 label{
@@ -47,8 +50,8 @@ label{
 }
 
 .form--campos{
-    width: 40%;
     font-size: 20px;
+    width: 100%;
     border: none;
     border-bottom:solid 1px var(--color-fields) ;
 }
@@ -58,6 +61,8 @@ label{
 }
 
 .enviar{
+    margin: auto;
+    width: 80%;
     font-size: 20px;
     background: white;
     color: var(--color-fields);
@@ -68,4 +73,17 @@ label{
 .enviar:hover{
     background: var(--color-fields);
     color: white;
+}
+
+section{
+    border-radius: 10px;
+    width: 60%;
+    border: solid 1px var(--color-nav);
+    margin: auto;
+    margin-top: 20px;
+    box-shadow: -10px 10px 10px grey;
+}
+
+p{
+    width: 90%;
 }
