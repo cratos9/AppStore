@@ -3,11 +3,15 @@
     --color-hover-text:#9ef6ff;
     --color-text:white;
     --color-fields:#00d5ff;
+    --text-size:20px;
 }
 
 body{
     margin: 0;
     padding: 0;
+    background-image: url(../../background/background.webp);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 nav{
@@ -26,18 +30,8 @@ nav{
     content: none;
 }
 
-.opciones__links{
-    text-decoration: none;
-    font-size: max(25px,2dvh);
-    color: var(--color-text);
-}
-
-.opciones__links:hover{
-    text-decoration: underline;
-    color: var(--color-hover-text);
-}
-
 form{
+    width: 100%;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -46,11 +40,11 @@ form{
 
 label{
     display: block;
-    font-size: 20px;
+    font-size: var(--text-size);
 }
 
 .form--campos{
-    font-size: 20px;
+    font-size: var(--text-size);
     width: 100%;
     border: none;
     border-bottom:solid 1px var(--color-fields) ;
@@ -63,7 +57,7 @@ label{
 .enviar{
     margin: auto;
     width: 80%;
-    font-size: 20px;
+    font-size: var(--text-size);
     background: white;
     color: var(--color-fields);
     border:  solid 1px var(--color-fields);
@@ -78,12 +72,30 @@ label{
 section{
     border-radius: 10px;
     width: 60%;
+    height: 80%;
     border: solid 1px var(--color-nav);
     margin: auto;
     margin-top: 20px;
+    padding: 20px;
     box-shadow: -10px 10px 10px grey;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    backdrop-filter: blur(10px);
 }
 
 p{
-    width: 90%;
+    width: 100%;
+}
+
+.links{
+    color: var(--color-fields);
+    text-decoration: none;
+    font-size: var(--text-size);
+}
+
+.links:hover{
+    text-decoration: underline;
+    color: var(--color-hover-text);
 }
