@@ -68,7 +68,7 @@ label{
     color: var(--color-background);
 }
 
-section{
+.formulario{
     width: 50%;
     height: 100%;
     box-shadow: -10px 0 20px grey;
@@ -78,6 +78,7 @@ section{
     justify-content: space-evenly;
     background-color: var(--color-background);
     flex-grow: 1;
+    flex-basis: 1;
 }
 
 p{
@@ -95,11 +96,24 @@ p{
     color: var(--color-hover-text);
 }
 
-img{
+.img{
+    min-width: 50%;
     flex-grow: 1;
+    flex-basis: 1;
+    background-image: url("../../background/background.webp");
 }
 
 h1{
     color: var(--color-text);
     font-size: var(--tile-size);
+}
+
+.error{
+    background-color: red;
+    text-align: center;
+    font-size: var(--text-size);
+    color:var(--color-text);
+    margin: 0;
+    padding: 5px;
+    width: 100%;
 }
