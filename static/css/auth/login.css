@@ -3,21 +3,18 @@
     --color-hover-text:#9ef6ff;
     --color-text:white;
     --color-fields:#00d5ff;
+    --color-background:#0d5e7d;
     --text-size:20px;
+    --tile-size:32px;
 }
 
 body{
     margin: 0;
     padding: 0;
-    background-image: url(../../background/background.webp);
-    background-size: cover;
-    background-repeat: no-repeat;
-}
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
 
-nav{
-    display: block;
-    background-color: var(--color-nav);
-    padding: 10px 0;
 }
 
 .opciones{
@@ -40,6 +37,7 @@ form{
 
 label{
     display: block;
+    color: var(--color-text);
     font-size: var(--text-size);
 }
 
@@ -48,6 +46,7 @@ label{
     width: 100%;
     border: none;
     border-bottom:solid 1px var(--color-fields) ;
+    background:none ;
 }
 
 .form--campos:focus{
@@ -56,9 +55,9 @@ label{
 
 .enviar{
     margin: auto;
-    width: 80%;
+    width: 40%;
     font-size: var(--text-size);
-    background: white;
+    background: none;
     color: var(--color-fields);
     border:  solid 1px var(--color-fields);
     transition: background .5s, color .5s;
@@ -66,27 +65,23 @@ label{
 
 .enviar:hover{
     background: var(--color-fields);
-    color: white;
+    color: var(--color-background);
 }
 
 section{
-    border-radius: 11px;
-    width: 60%;
-    height: 80%;
-    border: solid 1px var(--color-nav);
-    margin: auto;
-    margin-top: 20px;
-    padding: 20px;
-    box-shadow: -10px 10px 10px grey;
+    width: 50%;
+    height: 100%;
+    box-shadow: -10px 0 20px grey;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
-    backdrop-filter: blur(10px);
+    background-color: var(--color-background);
+    flex-grow: 1;
 }
 
 p{
-    width: 100%;
+    width: 90%;
 }
 
 .links{
@@ -98,4 +93,13 @@ p{
 .links:hover{
     text-decoration: underline;
     color: var(--color-hover-text);
+}
+
+img{
+    flex-grow: 1;
+}
+
+h1{
+    color: var(--color-text);
+    font-size: var(--tile-size);
 }
