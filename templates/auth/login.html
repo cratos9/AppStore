@@ -7,8 +7,12 @@
     <link rel="stylesheet" href="{% static 'css/auth/login.css' %}">
 {% endblock %}
 {% block content %}
-    <img src="{% static 'background/background.webp' %}" alt="imagen de objetos">
-    <section>
+    <section class="img">
+        {% for msg in messages %}
+            <p class="{{ msg.tags }}">{{ msg }}</p>
+        {% endfor %}
+    </section>
+    <section class="formulario">
         <h1>Cratos's store</h1>
         <form method="post">
             {% csrf_token %}

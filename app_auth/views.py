@@ -20,11 +20,11 @@ def login(request):
             try:
                 user = User.objects.get(email = email)
                 if check_password(password, user.password):
-                    print("acceso permitido")
+                    return redirect('store')
                 else:
-                    print("contrasena incorrecta")
+                    messages.error(request, "El usuario o contrasenas son son incorrectas")
             except:
-                print("el usuario no existe")
+                messages.error(request, "El usuario o contrasenas son son incorrectas")
     else:
         form = loginForm()
     return render(request,"auth/login.html",{'form':form})
