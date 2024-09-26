@@ -3,7 +3,11 @@
     Cratos's store
 {% endblock %}
 {% block content %}
-    <p>nose</p>
-    <p>{{user.email}}</p>
-    <p>{{user.password}}</p>
+    {% if request.session.user %}
+        <p>{{ request.session.email }}</p>
+        <p>{{ request.session.user }}</p>
+    {% else %}
+        <p>inicia sesion</p>
+    {% endif %}
+    
     {% endblock %}

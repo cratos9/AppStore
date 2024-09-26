@@ -20,7 +20,10 @@ def login(request):
             try:
                 user = User.objects.get(email = email)
                 if check_password(password, user.password):
-                    return redirect('store')
+                    request.session['user'] = user.user
+                    request.session['email'] = user.email
+                    #request.session.flush()
+                    return redirect('index')
                 else:
                     messages.error(request, "El usuario o contrasenas son son incorrectas")
             except:
