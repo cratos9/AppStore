@@ -127,4 +127,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # configuraciones personalizadas
 
-LOGIN_ULR = 'login'
