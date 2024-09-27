@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {% block title %}
-    Cratos's store
+    Cratos's store - profile
 {% endblock %}
 {% block content %}
     {% if request.session.user %}
@@ -9,5 +9,4 @@
     {% else %}
         <p>inicia sesion</p>
     {% endif %}
-    
-    {% endblock %}
+{% endblock %}

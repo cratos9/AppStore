@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-def index(requrst):
-    return render(requrst,"store/index.html")
+def profile(request):
+    request.session.flush()
+    return render(request,"store/profile.html")

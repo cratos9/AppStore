@@ -22,7 +22,7 @@ def login(request):
                 if check_password(password, user.password):
                     request.session['user'] = user.user
                     request.session['email'] = user.email
-                    #request.session.flush()
+                    request.session['id'] = user.id
                     return redirect('index')
                 else:
                     messages.error(request, "El usuario o contrasenas son son incorrectas")
@@ -55,3 +55,7 @@ def Register(request):
     else:
         form = RegisterForm()
     return render(request,"auth/register.html",{'form':form})
+
+def logout(request):
+    request.session.flush()
+    return redirect('index')

@@ -10,20 +10,20 @@
 {% if request.session.user %}
     <nav>
         <ul class="opciones">
-            <li class="opciones__opcion"><a href="#" class="opciones__links">Buscar</a></li>
             <li class="opciones__opcion"><a href="#" class="opciones__links">Cratos's store</a></li>
-            <li class="opciones__opcion"><a href="#" class="opciones__links">{{ request.session.user }}</a></li>
+            <li class="opciones__opcion"><a href="#" class="opciones__links">Buscar</a></li>
             <li class="opciones__opcion"><a href="#" class="opciones__links">Carrito</a></li>
-            <li class="opciones__opcion"><a href="#" class="opciones__links">Cerrar sesion</a></li>
+            <li class="opciones__opcion"><a href="{% url 'profile' request.session.id %}" class="opciones__links">{{ request.session.user }}</a></li>
+            <li class="opciones__opcion"><a href="{% url 'logout' %}" class="opciones__links">Cerrar sesion</a></li>
         </ul>
     </nav>
     {% else %}
     <nav>
         <ul class="opciones">
-            <li class="opciones__opcion"><a href="#" class="opciones__links">Buscar</a></li>
             <li class="opciones__opcion"><a href="#" class="opciones__links">Cratos's store</a></li>
-            <li class="opciones__opcion"><a href="{%url 'register' %}" class="opciones__links">Registrarse</a></li>
+            <li class="opciones__opcion"><a href="#" class="opciones__links">Buscar</a></li>
             <li class="opciones__opcion"><a href="{% url 'login' %}" class="opciones__links">Iniciar sesion</a></li>
+            <li class="opciones__opcion"><a href="{% url 'register' %}" class="opciones__links">Registrarse</a></li>
         </ul>
     </nav>
     {% endif %}
