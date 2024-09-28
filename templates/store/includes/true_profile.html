@@ -1,0 +1,31 @@
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store/true_profile.css' %}">
+{% endblock %}
+{% block nav %}
+    <nav>
+        <ul class="opciones">
+            <li class="opciones__opcion"><a href="{% url 'index' %}" class="opciones__links">Cratos's store</a></li>
+            <li class="opciones__opcion"><a href="{% url 'logout' %}" class="opciones__links">Cerrar sesion</a></li>
+        </ul>
+    </nav>
+{% endblock %}
+{% block content %}
+    <main>
+        <section class="photo">
+            <img src="{% static 'background/background.webp' %}" alt="foto del usuario" title="foto del usuario">
+            <p>{{ request.session.user }}</p>
+            <a href="#" class="edit">Cambiar foto</a>
+        </section>
+        <section class="infomation">
+            <p>Nombre del usuario:</p>
+            <p>{{ request.session.user }}</p>
+            <p>Correo:</p>
+            <p>{{ request.session.email }}</p>
+            <p>Direccion:</p>
+            <p>Descononocida</p>
+            <p>Contrasena:</p>
+            <a href="#" class="edit">Cambiar contrasena</a>
+        </section>
+    </main>
+{% endblock %}
