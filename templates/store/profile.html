@@ -1,12 +1,11 @@
 {% extends 'base.html' %}
 {% block title %}
-    Cratos's store - profile
+    Cratos's store
 {% endblock %}
 {% block content %}
     {% if request.session.user %}
-        <p>{{ request.session.email }}</p>
-        <p>{{ request.session.user }}</p>
+        {% include 'store/includes/true_profile.html' %}
     {% else %}
-        <p>inicia sesion</p>
+        {% include 'store/includes/false_session.html' %}
     {% endif %}
 {% endblock %}
