@@ -13,12 +13,26 @@ p{
 }
 
 a{
-    text-align: center;
+    border: 1px solid black;
+    border-radius: 5px;
     color: black;
     text-decoration: none;
+    padding: 5px;
+    width: 100px;
+    margin: auto;
+    transition: 0.5s;
+}
+
+a:hover{
+    color: white;
+    border-color: white;
 }
 
 section{
-    background-color: aqua;
+    background-color:#0094c0;
     padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-content: space-between;
 }
