@@ -7,4 +7,4 @@ class User(models.Model):
     password = models.CharField(null=False, editable=True, max_length=20)
     
     def _repr_(self):
-        return f'<User: {self.username}>'
+        return f'<User: {self.user}>'
