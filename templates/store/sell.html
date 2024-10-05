@@ -22,9 +22,10 @@
     {% if request.session.user %}
         <main>
             <section>
-                <form method="post">
+                <form method="post" enctype="multipart/form-data">
                     {% csrf_token %}
                     {{ form.as_p }}
+                    <img src="{{ post.imagen.url }}" alt="imagen">
                     <input type="submit" value="Vender" class="enviar">
                 </form>
             </section>

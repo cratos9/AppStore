@@ -1,18 +1,23 @@
 from django.shortcuts import render, redirect
-from .form import Post
+from .form import PostForm
+from app_auth.models import User
+from .models import Post
 
 def profile(request):
     return render(request,"store/profile.html")
 
 def sell(request):
     if request.method == 'POST':
-        form = Post(request.POST)
+        form = PostForm(request.POST, request.FILES)
         if form.is_valid():
             title = form.cleaned_data['title']
             desc = form.cleaned_data['desc']
             price = form.cleaned_data['price']
-            image = form.cleaned_data['image']
-            print(f'{title}, {desc}, {price}, {image}')
+            photo = form.cleaned_data['photo']
+            author = User.objects.get(user=request.session.get('user'))
+            newPost = Post(title = title, desc = desc, price = price, author = author, image = photo)
+            newPost.save()
+            return redirect('index')
     else:
-        form = Post()
+        form = PostForm()
     return render(request,"store/sell.html",{'form':form})
