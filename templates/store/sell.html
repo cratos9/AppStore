@@ -28,6 +28,9 @@
                     <input type="submit" value="Vender" class="enviar">
                 </form>
             </section>
+            {% for msg in messages %}
+                <p class="{{ msg.tags }}">{{ msg }}</p>
+            {% endfor %}
         </main>
     {% endif %}
 {% endblock %}

@@ -6,7 +6,7 @@ def profile(request):
 
 def sell(request):
     if request.method == 'POST':
-        form = Post(request.POST, request.FILES)
+        form = Post(request.POST)
         if form.is_valid():
             title = form.cleaned_data['title']
             desc = form.cleaned_data['desc']

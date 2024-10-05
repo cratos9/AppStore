@@ -2,6 +2,10 @@
     --color-nav:#0094c0;
     --color-hover-text:#9ef6ff;
     --color-text:white;
+    --color-fields:#00d5ff;
+    --color-background:#0d5e7d;
+    --text-size:20px;
+    --tile-size:32px;
 }
 
 body{
@@ -34,4 +38,54 @@ nav{
 .opciones__links:hover{
     text-decoration: underline;
     color: var(--color-hover-text);
+}
+
+form{
+    margin: 20px;
+}
+
+label{
+    display: block;
+    font-size: var(--text-size);
+}
+
+.form--campos{
+    font-size: var(--text-size);
+    width: 100%;
+    border: none;
+    border-bottom:solid 1px var(--color-fields) ;
+    background:none ;
+}
+
+.form--campos:focus{
+    outline: none;
+}
+
+.enviar{
+    margin: auto;
+    width: 40%;
+    font-size: var(--text-size);
+    background: none;
+    color: var(--color-fields);
+    border:  solid 1px var(--color-fields);
+    transition: background .5s, color .5s;
+}
+
+.enviar:hover{
+    background: var(--color-fields);
+    color: var(--color-background);
+}
+
+p{
+    width: 40%;
+}
+
+.error{
+    background-color: red;
+    text-align: center;
+    font-size: var(--text-size);
+    color:var(--color-text);
+    margin: 0;
+    padding: 5px;
+    width: 100%;
 }
