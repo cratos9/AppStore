@@ -29,5 +29,15 @@
     {% endif %}
 {% endblock %}
 {% block content %}
-    
+    <main>
+        <section>
+            {% for product in products %}
+                <div class="product">
+                    <p>{{ product.title}}</p>
+                    <p>{{ product.desc }}</p>
+                    <p>{{ product.price }}</p>
+                </div>
+            {% endfor %}
+        </section>
+    </main>
 {% endblock %}

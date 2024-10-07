@@ -5,10 +5,12 @@ from django.contrib import messages
 #Personal imports
 from .form import loginForm, RegisterForm
 from .models import User
+from store.models import Post
 
 #index route
 def index(request):
-    return render(request,"auth/index.html")
+    products = Post.objects.all()
+    return render(request,"auth/index.html", {'products':products})
 
 #Login logic and route
 def login(request):
