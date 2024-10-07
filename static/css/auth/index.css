@@ -35,3 +35,8 @@ nav{
     text-decoration: underline;
     color: var(--color-hover-text);
 }
+
+section{
+    margin: 20px;
+}
+
