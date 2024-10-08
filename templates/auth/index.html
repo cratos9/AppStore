@@ -33,9 +33,10 @@
         <section>
             {% for product in products %}
                 <div class="product">
+                    <img src="{{ product.image.url }}" alt="Imagen del producto: {{ product.title }}">
                     <p>{{ product.title}}</p>
                     <p>{{ product.desc }}</p>
-                    <p>{{ product.price }}</p>
+                    <p>{{ product.price }}$</p>
                 </div>
             {% endfor %}
         </section>
