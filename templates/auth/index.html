@@ -33,7 +33,7 @@
         <section>
             {% for product in products %}
                 <div class="product">
-                    <img src="{{ product.image.url }}" alt="Imagen del producto: {{ product.title }}">
+                    <img src="{{ product.image.url }}" alt="Imagen del producto: {{ product.title }}" class="product--image" loading="lazy">
                     <p>{{ product.title}}</p>
                     <p>{{ product.desc }}</p>
                     <p>{{ product.price }}$</p>
