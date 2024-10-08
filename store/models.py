@@ -8,7 +8,7 @@ class Post(models.Model):
     price = models.FloatField(null=False, default=100)
     created_at = models.DateTimeField(auto_now_add=True, null=False)
     author = models.ForeignKey(to=User,on_delete=models.CASCADE, null=False)
-    image = models.ImageField(upload_to='media/products', default="Imagen")
+    image = models.ImageField(upload_to='products/', default="Imagen")
     
     def _repr_(self):
         return f'<User: {self.title}>'
