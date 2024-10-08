@@ -38,5 +38,32 @@ nav{
 
 section{
     margin: 20px;
+    display: grid;
+    grid-template-columns: repeat(5,250px);
+    gap: 15px 1px;
+    justify-content: space-evenly;
 }
 
+.product{
+    border-radius: 50px;
+    background: linear-gradient(45deg, #d3e5e6, #faffff);
+    box-shadow: 20px -20px 60px #c7d8d9,
+                -20px 20px 60px #ffffff;
+    display: flex;
+    flex-direction: column;
+    padding:5px;
+    text-align: center;
+    text-transform: capitalize;
+    transition: transform .5s ease;
+}
+
+.product--image{
+    width: 200px;
+    height: 200px;
+    clip-path: circle(50% at 50% 50%);
+    margin: auto;
+}
+
+.product:hover{
+    transform: scale(1.05);
+}
