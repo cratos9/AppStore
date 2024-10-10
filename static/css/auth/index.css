@@ -51,7 +51,7 @@ section{
                 -20px 20px 60px #ffffff;
     display: flex;
     flex-direction: column;
-    padding:5px;
+    padding:5px 10px;
     text-align: center;
     text-transform: capitalize;
     transition: transform .5s ease;
@@ -66,4 +66,42 @@ section{
 
 .product:hover{
     transform: scale(1.05);
+}
+
+.buy{
+    border: 1px solid var(--color-nav);
+    text-decoration: none;
+    background-color: var(--color-nav);
+    color: var(--color-text);
+    width: 100px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+.favorite{
+    border: 1px solid var(--color-nav);
+    color: var(--color-text);
+    border-radius: 5px;
+    padding: 5px;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+.btn{
+    margin: auto;
+    margin-bottom: 8px;
+    display: inline;
+    padding: 5px;
+}
+
+svg{
+    stroke: var(--color-nav);
+    height: 20px;
+    width: 20px;
+    fill: none;
+}
+
+svg:hover{
+    fill: var(--color-nav);
 }
