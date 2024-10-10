@@ -16,16 +16,15 @@
             <img src="{% static 'background/background.webp' %}" alt="foto del usuario" title="foto del usuario">
             <p>{{ request.session.user }}</p>
             <a href="#" class="edit">Cambiar foto</a>
-        </section>
-        <section class="infomation">
-            <p>Nombre del usuario:</p>
-            <p>{{ request.session.user }}</p>
-            <p>Correo:</p>
-            <p>{{ request.session.email }}</p>
-            <p>Direccion:</p>
-            <p>Desconocida</p>
+            <p>Nombre del usuario: {{ request.session.user }}</p>
+            <p>Correo: {{ request.session.email }}</p>
+            <p>Direccion: Desconocida</p>
             <p>Contrasena:</p>
             <a href="#" class="edit">Cambiar contrasena</a>
+        </section>
+        <section class="favorites">
+            <h3>Productos favoritos:</h3>
+            <!-- for para los productos favoritos -->
         </section>
     </main>
 {% endblock %}

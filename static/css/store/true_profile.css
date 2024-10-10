@@ -15,7 +15,7 @@ body{
 
 main{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     flex-wrap: nowrap;
     flex-grow: 1;
     flex-basis: 1;
@@ -23,10 +23,11 @@ main{
 }
 
 section{
-    border: 1px solid var(--color-nav);
+    border-bottom: 1px solid var(--color-nav);
     width: 100%;
     font-size: var(--text-size);
-    padding: 20px;
+    padding: 20px 0;
+    text-transform: capitalize;
 }
 
 .photo{
@@ -72,4 +73,8 @@ nav{
 .opciones__links:hover{
     text-decoration: underline;
     color: var(--color-hover-text);
+}
+
+.favorites{
+    text-align: center;
 }
