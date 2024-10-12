@@ -12,3 +12,8 @@ class Post(models.Model):
     
     def _repr_(self):
         return f'<User: {self.title}>'
+    
+class Favorite(models.Model):
+    user = models.ForeignKey(to=User, on_delete=models.CASCADE, null=False)
+    product = models.ForeignKey(to=Post, on_delete=models.CASCADE, null=False)
+    date = models.DateTimeField(auto_now_add=True)

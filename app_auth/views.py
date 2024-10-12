@@ -1,6 +1,7 @@
 #Django imports
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 #Personal imports
 from .form import loginForm, RegisterForm
@@ -16,20 +17,13 @@ def index(request):
 def login(request):
     if request.method == 'POST':
         form = loginForm(request.POST)
-        if form.is_valid():
-            email = form.cleaned_data['email']
-            password = form.cleaned_data['password']
-            try:
-                user = User.objects.get(email = email)
-                if check_password(password, user.password):
-                    request.session['user'] = user.user
-                    request.session['email'] = user.email
-                    request.session['id'] = user.id
-                    return redirect('index')
-                else:
-                    messages.error(request, "El usuario o contrasenas son son incorrectas")
-            except:
-                messages.error(request, "El usuario o contrasenas son son incorrectas")
+        email = form.cleaned_data['email']
+        password = form.cleaned_data['password']
+        user = authenticate(request, email = email, password = password)
+        if user is not None:
+            login(request, user)
+        else:
+            messages.error(request, "La contrasena o usuario son incorrectos")
     else:
         form = loginForm()
     return render(request,"auth/login.html",{'form':form})
@@ -59,5 +53,5 @@ def Register(request):
     return render(request,"auth/register.html",{'form':form})
 
 def logout(request):
-    request.session.flush()
+    logout(request)
     return redirect('index')
