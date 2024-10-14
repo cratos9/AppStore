@@ -2,7 +2,7 @@ from django.contrib.auth.forms import AuthenticationForm
 from django import forms
 
 class loginForm(AuthenticationForm):
-    username = forms.EmailField(label="Correo electronico:", widget=forms.EmailInput(attrs={'Class':'form--campos'}), required=True)
+    username = forms.CharField(label="Usuario:", widget=forms.TextInput(attrs={'Class':'form--campos'}), required=True)
     password = forms.CharField(label="Contrasena:", widget=forms.PasswordInput(attrs={'Class':'form--campos'}), required=True)
     
 class RegisterForm(forms.Form):
