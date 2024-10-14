@@ -1,6 +1,7 @@
 #Django imports
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password, check_password
+from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 #Personal imports
@@ -9,6 +10,7 @@ from .models import User
 from store.models import Post
 
 #index route
+@login_required
 def index(request):
     products = Post.objects.all()
     return render(request,"auth/index.html", {'products':products})
@@ -19,7 +21,7 @@ def login(request):
         form = loginForm(request.POST)
         email = form.cleaned_data['email']
         password = form.cleaned_data['password']
-        user = authenticate(request, email = email, password = password)
+        user = authenticate(request, email = email, username = password)
         if user is not None:
             login(request, user)
         else:
@@ -52,6 +54,6 @@ def Register(request):
         form = RegisterForm()
     return render(request,"auth/register.html",{'form':form})
 
-def logout(request):
+def logout_view(request):
     logout(request)
     return redirect('index')
