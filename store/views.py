@@ -1,11 +1,14 @@
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from .form import PostForm
 from app_auth.models import User
 from .models import Post
 
+@login_required
 def profile(request):
     return render(request,"store/profile.html")
 
+@login_required
 def sell(request):
     if request.method == 'POST':
         form = PostForm(request.POST, request.FILES)

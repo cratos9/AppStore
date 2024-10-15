@@ -1,11 +1,36 @@
 {% extends 'base.html' %}
+{% block style %}
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/store/true_profile.css' %}">
+{% endblock %}
 {% block title %}
     Cratos's store
 {% endblock %}
+{% block nav %}
+    <nav>
+        <ul class="opciones">
+            <li class="opciones__opcion"><a href="{% url 'index' %}" class="opciones__links">Cratos's store</a></li>
+            <li class="opciones__opcion"><a href="{% url 'logout' %}" class="opciones__links">Cerrar sesion</a></li>
+        </ul>
+    </nav>
+{% endblock %}
 {% block content %}
-    {% if request.session.user %}
-        {% include 'store/includes/true_profile.html' %}
-    {% else %}
-        {% include 'store/includes/false_session.html' %}
+    {% if user.is_authenticated %}
+        <main>
+            <section class="photo">
+                <img src="{% static 'background/background.webp' %}" alt="foto del usuario" title="foto del usuario">
+                <p>{{ user.username }}</p>
+                <a href="#" class="edit">Cambiar foto</a>
+                <p>Nombre del usuario: {{ user.username }}</p>
+                <p>Correo: {{ user.email }}</p>
+                <p>Direccion: Desconocida</p>
+                <p>Contrasena:</p>
+                <a href="#" class="edit">Cambiar contrasena</a>
+            </section>
+            <section class="favorites">
+                <h3>Productos favoritos:</h3>
+                <!-- for para los productos favoritos -->
+            </section>
+        </main>
     {% endif %}
 {% endblock %}
