@@ -1,5 +1,4 @@
 #Django imports
-from django.contrib.auth.decorators import login_required
 from django.shortcuts import render, redirect
 from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
@@ -10,7 +9,6 @@ from .models import User
 from store.models import Post
 
 #index route
-@login_required
 def index(request):
     products = Post.objects.all()
     return render(request,"auth/index.html", {'products':products})

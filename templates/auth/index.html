@@ -7,14 +7,14 @@
     <link rel="stylesheet" href="{% static 'css/auth/index.css' %}">
 {% endblock %}
 {% block nav %}
-{% if request.session.user %}
+{% if user.is_authenticated %}
     <nav>
         <ul class="opciones">
             <li class="opciones__opcion"><a href="#" class="opciones__links">Cratos's store</a></li>
             <li class="opciones__opcion"><a href="#" class="opciones__links">Buscar</a></li>
             <li class="opciones__opcion"><a href="#" class="opciones__links">Carrito</a></li>
             <li class="opciones__opcion"><a href="{% url 'sell' %}" class="opciones__links">Vender</a></li>
-            <li class="opciones__opcion"><a href="{% url 'profile' %}" class="opciones__links">{{ request.session.user }}</a></li>
+            <li class="opciones__opcion"><a href="{% url 'profile' %}" class="opciones__links">{{ user.username }}</a></li>
         </ul>
     </nav>
     {% else %}
