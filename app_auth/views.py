@@ -14,16 +14,17 @@ def index(request):
     return render(request,"auth/index.html", {'products':products})
 
 #Login logic and route
-def login(request):
+def login_view(request):
     if request.method == 'POST':
         form = loginForm(request.POST)
-        email = form.cleaned_data['email']
-        password = form.cleaned_data['password']
-        user = authenticate(request, email = email, username = password)
-        if user is not None:
-            login(request, user)
-        else:
-            messages.error(request, "La contrasena o usuario son incorrectos")
+        if form.is_valid():
+            email = form.cleaned_data['email']
+            password = form.cleaned_data['password']
+            user = authenticate(request, username = email, username = password)
+            if user is not None:
+                login(request, user)
+            else:
+                messages.error(request, "La contrasena o usuario son incorrectos")
     else:
         form = loginForm()
     return render(request,"auth/login.html",{'form':form})
@@ -42,8 +43,7 @@ def Register(request):
                 if password != passwordConfirm:
                     messages.error(request, "La contrasena debe ser igual")
                 elif password == passwordConfirm:
-                    passwordSave = make_password(password)
-                    newUser = User(user = user, email = email, password = passwordSave)
+                    newUser = User.objects.create_user(username=user, email=email, password=password)
                     newUser.save()
                     return redirect("login")
             else:
