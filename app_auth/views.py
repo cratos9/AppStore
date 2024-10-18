@@ -1,6 +1,5 @@
 #Django imports
 from django.shortcuts import render, redirect
-from django.contrib.auth.hashers import make_password
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 #Personal imports
