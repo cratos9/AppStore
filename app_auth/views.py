@@ -5,11 +5,15 @@ from django.contrib import messages
 #Personal imports
 from .form import loginForm, RegisterForm
 from .models import User
-from store.models import Post
+from store.models import Post, Favorite
 
 #index route
 def index(request):
     products = Post.objects.all()
+    if request.user.is_authenticated:
+        favorites = Favorite.objects.filter(user = request.user).values_list('product',flat=True)
+        favorite_set = set(favorites)
+        return render(request,"auth/index.html", {'products':products, 'favorites':favorite_set})
     return render(request,"auth/index.html", {'products':products})
 
 #Login logic and route
