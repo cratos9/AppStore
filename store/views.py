@@ -1,8 +1,8 @@
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from .form import PostForm
 from app_auth.models import User
-from .models import Post
+from .models import Post, Favorite
 
 @login_required
 def profile(request):
@@ -24,3 +24,15 @@ def sell(request):
     else:
         form = PostForm()
     return render(request,"store/sell.html",{'form':form})
+
+@login_required
+def favorite(request, id):
+    user = request.user
+    product = get_object_or_404(Post, id = id)
+    favorite = Favorite.objects.filter(user=user, product=product).first()
+
+    if favorite:
+        favorite.delete()
+    else:
+        Favorite.objects.create(user=user, product=product)
+    return redirect('index')
