@@ -6,7 +6,23 @@ from .models import Post, Favorite
 
 @login_required
 def profile(request):
-    return render(request,"store/profile.html")
+    favorite = Favorite.objects.filter(user = request.user).values_list('product', flat=True)
+    product = Post.objects.filter(id__in=favorite)
+    favorite_products_dict = {
+    product.id: {
+        'title': product.title,
+        'price': product.price,
+        'desc': product.desc,
+        'image': product.image.url if product.image else '',
+        'created_at': product.created_at,
+        'author' : product.author
+    }
+    for product in product
+    }
+    context = {
+    'favorite_products': favorite_products_dict
+    }
+    return render(request,"store/profile.html",context)
 
 @login_required
 def sell(request):

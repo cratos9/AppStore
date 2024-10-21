@@ -28,7 +28,17 @@
             </section>
             <section class="favorites">
                 <h3>Productos favoritos:</h3>
-                <!-- for para los productos favoritos -->
+                {% for product_id, product_info in favorite_products.items %}
+    <div class="product">
+        <h2>{{ product_info.title }}</h2>
+        <p>Price: ${{ product_info.price }}</p>
+        <p>{{ product_info.desc }}</p>
+        {% if product_info.image %}
+            <img src="{{ product_info.image }}" alt="{{ product_info.title }}">
+        {% endif %}
+    </div>
+{% endfor %}
+
             </section>
         </main>
     {% endif %}
